@@ -20,6 +20,24 @@ All 25 remote folders matched the installed folders' fingerprints when this lock
 
 The user-level `~/.agents/.skill-lock.json` uses a separate global-lock format. Do not replace it with this project lock.
 
+## Install through the skills.sh pack
+
+Pack: [Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6).
+
+Created on October 9, 2026 under the `alan-moyano` Vercel team. The pack contains the same 25 skill names as this lock: 24 public catalog entries with their original sources, plus `writing-pr` imported from `alanmoyano/skills` at `main`.
+
+```sh
+npx skills add https://skills.sh/p/jbI6I7Cw78IIw3Y6 -g -a codex claude-code -y
+```
+
+Omit `-g` for a project-level installation. The pack is unlisted, and viewing or installing it requires no authentication. Anyone with its URL can access it.
+
+The pack installation was tested in an empty temporary project with Skills CLI 1.7.1. It installed all 25 expected skill names without extras, and `writing-pr` matched the file in this repository.
+
+The pack serves its current published contents. It does not use the commit pins in this repository's lock, so its versions can differ from the recorded inventory. Use the pinned restoration instructions below when those revisions matter. The hash verifier applies to the pinned collection and may report differences for a pack installation.
+
+To edit the pack, sign in to skills.sh with its creator account and use **Edit skills in pack** on the pack page. Updating this repository's lock does not update the pack, and editing the pack does not regenerate the lock.
+
 ## Upstream inventory
 
 ### jakubkrehel/skills
@@ -177,5 +195,6 @@ Codex system skills under `~/.codex/skills/.system`, plugin-cache skills, and Cl
 ## References
 
 - [Skills CLI documentation](https://skills.sh/docs/cli).
+- [Skills.sh pack creation, installation and management](https://skills.sh/docs/packs).
 - [Skills CLI source and installation options](https://github.com/vercel-labs/skills).
 - [Project lock and restore implementation in CLI 1.7.1](https://github.com/vercel-labs/skills/tree/v1.7.1/src).
