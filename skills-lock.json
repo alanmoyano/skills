@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "skills": {
+    "animate": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "7598d33e7f60dd5c24531eaaa897621cc3bdb48e8050324211627973bc59c4ce"
+    },
+    "animation-vocabulary": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "0058036865ecbb864fd0c4132efcc62425355d6e99c7e6ef6a936742d62a5dea"
+    },
+    "apple-design": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "0190417d092a0df447b000154e39733ea6d97efad6d3bec8a6ce3845aeb88914"
+    },
+    "better-accessibility": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "b7fffd77b6ac087d72e081c1b0afa312edc7b6c82bb3c863dd454937d4900cb3"
+    },
+    "better-colors": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "25be5683f90265ae9caad9e0f22c14607b47a0e8cd2481bdb4a498071fb5bd56"
+    },
+    "better-interface": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "9c73b05d59b188147335eb71308ec7f37237272202fe2298f54c322e6c318b3f"
+    },
+    "better-layout": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "96568d1af89fd3b0061622b9938ce2855b74c1c11134b63f2aec45961372e7ab"
+    },
+    "better-typography": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "f959c7e37cc5275dc1737090393998c546355919a14977bbf7d5f70cb6e3106b"
+    },
+    "better-ui": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "6f69968c0d1ed034753d64aa22f2bf4332f1471164f110db720d05faf76c3551"
+    },
+    "better-writing": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "fe296e430b1426c2b3dd8ef0e7675ebc1429ec4db5caa56dc355b24e2a1997fb"
+    },
+    "break": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "044d70413a0961625cf05de247da12d9177a4c4d109cf7e5d0cd9bd3712ffc64"
+    },
+    "break-ui": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "60ada67662925f4df5e3c6ff41cac3ab241b66f8898100a5ffcd7ba7196cb868"
+    },
+    "codebase-design": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "b2888e4f4e8c0af3bfd557575a64b905c44e6248c3101d72077816882b3a92b9"
+    },
+    "emil-design-eng": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "51f2537e04d15911b41d78e2de24c36a0e26d41beae15e82a954fe5496a5eda9"
+    },
+    "explain-interface": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "c15f9e3e5844fe4e70e2ea3251665d84fbdeff899bdc9a839cb88f9bdb5dfc65"
+    },
+    "find-animation-opportunities": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "465d087c41768e4f14ed640dd049036009f613feb55baaa5831b68b33178f9d2"
+    },
+    "frontend-design": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "good-css": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "ee63883a1fe94f5a5f52d1fef723fe437fe18b65acd34f284f69d92080d5954b"
+    },
+    "improve-animations": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "524ea241e41d58bbdd8e288700fe24f5725e2a2f3ae7186ad7cebf9055058356"
+    },
+    "interface-review": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "8feb4aa0e2a35b629cdff8121ccbed7ff9bfca83bd245a691d16ca9ccd3e52b5"
+    },
+    "prototype": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "77be567d8c946608fdd15e61b62ab383cdf289a194dce2479828b7eda860d3ba"
+    },
+    "review-animations": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "b4e5f0f4fe3e2743c85bf7354108f48a0b9d502cb20ef5c4a9c195da91f93736"
+    },
+    "unslop": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "6018ca8c329ba87c6b4298207f58d6b773fe23e44ff52a00a9a4d160c19bedc0"
+    },
+    "writing-for-agents": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "95da47fc97af998e85b7d7e6d57b3ac76727c1e290cfe9ea09005aacb826959f"
+    },
+    "writing-pr": {
+      "source": "./skills",
+      "sourceType": "local",
+      "computedHash": "ec9651a9217a3fd5c176728f036f999903a012dede07c1416d7f3f443dfa1c90"
+    }
+  }
+}
