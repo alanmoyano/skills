@@ -4,16 +4,28 @@ import { dirname, join, resolve, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const repo = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const root = process.argv[2] ? resolve(process.argv[2]) : join(repo, 'skills');
+const root = process.argv[2] ? resolve(process.argv[2]) : null;
 const lock = JSON.parse(await readFile(join(repo, 'skills-lock.json'), 'utf8'));
-const names = (await readdir(root, { withFileTypes: true }))
-  .filter(entry => entry.isDirectory())
-  .map(entry => entry.name)
-  .sort();
 const lockedNames = Object.keys(lock.skills).sort();
 
-if (lock.version !== 1 || JSON.stringify(names) !== JSON.stringify(lockedNames)) {
-  throw new Error('Skill inventory does not match skills-lock.json');
+if (lock.version !== 1 || lockedNames.length === 0) {
+  throw new Error('Expected a nonempty version 1 project lock');
+}
+for (const name of lockedNames) {
+  const entry = lock.skills[name];
+  if (entry.sourceType !== 'github' || !/^[\w.-]+\/[\w.-]+$/.test(entry.source)
+      || !/^[a-f0-9]{40}$/.test(entry.ref) || !/^[a-f0-9]{64}$/.test(entry.computedHash)
+      || typeof entry.skillPath !== 'string' || !entry.skillPath.endsWith('/SKILL.md')
+      || entry.skillPath.startsWith('/') || entry.skillPath.split('/').includes('..')) {
+    throw new Error(`Invalid pinned GitHub entry: ${name}`);
+  }
+}
+const authoredNames = (await readdir(join(repo, 'skills'), { withFileTypes: true }))
+  .filter(entry => entry.isDirectory()).map(entry => entry.name).sort();
+for (const name of authoredNames) {
+  if (lock.skills[name]?.source !== 'alanmoyano/skills') {
+    throw new Error(`Unexpected vendored skill: ${name}`);
+  }
 }
 
 // Match computeSkillFolderHash in Skills CLI 1.7.1, including localeCompare ordering.
@@ -30,10 +42,12 @@ async function collect(base, directory, files) {
   }
 }
 
+const names = root ? lockedNames : authoredNames;
 for (const name of names) {
+  const folder = join(root ?? join(repo, 'skills'), name);
   const files = [];
-  await readFile(join(root, name, 'SKILL.md'));
-  await collect(join(root, name), join(root, name), files);
+  await readFile(join(folder, 'SKILL.md'));
+  await collect(folder, folder, files);
   files.sort((a, b) => a.path.localeCompare(b.path));
   const hash = createHash('sha256');
   for (const file of files) hash.update(file.path).update(file.content);
@@ -42,4 +56,4 @@ for (const name of names) {
   }
 }
 
-console.log(`Verified ${names.length} skills against skills-lock.json`);
+console.log(`Validated ${lockedNames.length} remote entries; verified ${names.length} skill folders`);

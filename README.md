@@ -1,37 +1,28 @@
 # Skills
 
-My collection of agent skills, including a snapshot of the 25 globally installed skills as of October 9, 2026.
+My own agent skills and a remote-source lock for the 25 skills installed globally as of October 9, 2026.
 
 ## Available skills
 
-- [writing-pr](skills/writing-pr/SKILL.md): write pull request and merge request titles and descriptions, following repository conventions and grouping larger changes by intent.
+- [writing-pr](skills/writing-pr/SKILL.md) writes pull request and merge request titles and descriptions, following repository conventions and grouping larger changes by intent.
 
-See [INSTALLED-SKILLS.md](INSTALLED-SKILLS.md) for the complete inventory, known origins, and recovery instructions.
+Only my own skill is distributed here. Third-party skills are referenced in [skills-lock.json](skills-lock.json) by their upstream repository, path, commit and content hash.
 
-## Install
-
-Install `writing-pr` globally with the Skills CLI:
+## Install writing-pr
 
 ```sh
 npx skills add alanmoyano/skills --skill writing-pr -g
 ```
 
-To restore the complete saved collection globally, clone this repository and run:
+## Restore the collection
 
-```sh
-npx skills@1.7.1 add ./skills --skill '*' --agent codex claude-code -g -y
-```
-
-To restore project-level installations from [skills-lock.json](skills-lock.json):
+For a project, run this from a checkout of the repository:
 
 ```sh
 npx skills@1.7.1 experimental_install
+node scripts/verify-lock.mjs .agents/skills
 ```
 
-The lock uses relative local sources and content hashes. The saved skill folders are required; the lock alone does not contain their contents or pin remote revisions.
+For a global installation, follow the upstream commands in [INSTALLED-SKILLS.md](INSTALLED-SKILLS.md). That document also lists the origins and commits and explains recovery without the lock or CLI.
 
-## Repository structure
-
-Each skill lives in `skills/<name>/` with a `SKILL.md` entry point and any supporting resources it needs.
-
-Third-party license notices are preserved with the relevant skills or under `licenses/`. Known provenance is recorded in [INSTALLED-SKILLS.md](INSTALLED-SKILLS.md).
+See the [Skills CLI documentation](https://skills.sh/docs/cli) and its [upstream README](https://github.com/vercel-labs/skills) for supported sources and installation options.
