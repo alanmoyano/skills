@@ -8,6 +8,44 @@ My own agent skills and a remote-source lock for the 25 skills installed globall
 
 Only my own skill is distributed here. Third-party skills are referenced in [skills-lock.json](skills-lock.json) by their upstream repository, path, commit and content hash.
 
+## Personal agent instructions
+
+[AGENTS.md](AGENTS.md) records my shared preferences for Codex and Claude Code. The working file is `~/AGENTS.md`; the repository contains a regular copy so cloning it restores the contents, rather than a symlink pointing outside the checkout.
+
+The local configuration is:
+
+- `~/AGENTS.md`: the real file, edited locally.
+- `~/.codex/AGENTS.md`: a symlink to `../AGENTS.md`.
+- `~/.claude/CLAUDE.md`: a regular file containing `@~/AGENTS.md` on its own line.
+
+From the repository root, set up a new installation with:
+
+```sh
+cp -i AGENTS.md "$HOME/AGENTS.md"
+mkdir -p "$HOME/.codex" "$HOME/.claude"
+ln -s ../AGENTS.md "$HOME/.codex/AGENTS.md"
+printf '%s\n' '@~/AGENTS.md' >> "$HOME/.claude/CLAUDE.md"
+```
+
+For an existing installation, inspect the destination files first. Merge any existing instructions, keep a correct Codex symlink, and add the Claude import only if it is missing. Keep the import outside Markdown backticks or code blocks so Claude expands it. See the [Claude Code import documentation](https://code.claude.com/docs/en/memory#import-additional-files).
+
+Verify the configuration with:
+
+```sh
+readlink "$HOME/.codex/AGENTS.md"
+cmp "$HOME/AGENTS.md" "$HOME/.codex/AGENTS.md"
+cat "$HOME/.claude/CLAUDE.md"
+```
+
+After editing the home file, update the tracked copy from the repository root before committing and pushing:
+
+```sh
+cp -i "$HOME/AGENTS.md" AGENTS.md
+git diff -- AGENTS.md
+```
+
+The repository copy and home file are independent. Skills CLI and pack installation do not install this personal configuration.
+
 ## Install writing-pr
 
 ```sh
