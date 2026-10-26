@@ -1,12 +1,12 @@
 # Skills
 
-My own agent skills and a remote-source lock for the 28 skills installed globally as of October 26, 2026.
+My own agent skills, my shared agent instructions, and the skills.sh pack I install globally.
 
 ## Available skills
 
 - [writing-pr](skills/writing-pr/SKILL.md) writes pull request and merge request titles and descriptions, following repository conventions and grouping larger changes by intent.
 
-Only my own skill is distributed here. Third-party skills are referenced in [skills-lock.json](skills-lock.json) by their upstream repository, path, commit and content hash.
+Only my own skill is distributed here. Third-party skills are installed from their upstream repositories through the pack.
 
 ## Personal agent instructions
 
@@ -54,25 +54,34 @@ npx skills add alanmoyano/skills --skill writing-pr -g
 
 ## Install the pack
 
-[Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6) bundles all 28 skills in this inventory. Install the collection globally for Codex and Claude Code:
+[Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6) is the source of truth for the skills I use. It bundles 27 public skills from their original repositories and imports `writing-pr` from this repository. It is unlisted and anyone with the link can install it.
+
+Install it globally for Codex and Claude Code:
 
 ```sh
 npx skills add https://skills.sh/p/jbI6I7Cw78IIw3Y6 -g -a codex claude-code -y
 ```
 
-The pack references 27 public skills from their original sources and imports `writing-pr` from this GitHub repository. It is unlisted and anyone with the link can install it.
+The pack installs the latest published version of each skill. To add or remove skills, sign in to skills.sh with the `alan-moyano` team and use **Edit skills in pack** on the pack page.
 
-The pack installs the contents currently served by skills.sh. Use the lock or the pinned upstream commands below to restore the recorded repository revisions.
+skills.sh allows 60 requests per hour, and a pack installation makes many of them. Even after an hour without requests, an installation of this pack usually skips one skill without reporting an error. A second installation within the hour fails with `Downloaded URL is not a valid SKILL.md file`. After installing, compare `ls ~/.agents/skills` with the pack page. Rerun the command after an hour, or install the missing skills with the commands below.
 
-## Restore the collection
+## Install without skills.sh
 
-For a project, run this from a checkout of the repository:
+These commands install the pack contents directly from GitHub, as of October 26, 2026. They don't depend on skills.sh, but they don't follow later changes to the pack.
 
 ```sh
-npx skills@1.7.1 experimental_install
-node scripts/verify-lock.mjs .agents/skills
+npx skills add jakubkrehel/skills -g -a codex claude-code -y \
+  --skill better-accessibility better-colors better-interface better-layout better-typography better-ui better-writing break explain-interface interface-review state-machine teardown variant
+
+npx skills add emilkowalski/skills -g -a codex claude-code -y \
+  --skill animate animation-vocabulary apple-design break-ui emil-design-eng find-animation-opportunities improve-animations prototype review-animations
+
+npx skills add mattpocock/skills -g -a codex claude-code -y --skill codebase-design writing-for-agents
+npx skills add anthropics/skills -g -a codex claude-code -y --skill frontend-design
+npx skills add vojtaholik/good-css -g -a codex claude-code -y --skill good-css
+npx skills add cursor/plugins -g -a codex claude-code -y --skill unslop
+npx skills add alanmoyano/skills -g -a codex claude-code -y --skill writing-pr
 ```
 
-For a global installation, follow the upstream commands in [INSTALLED-SKILLS.md](INSTALLED-SKILLS.md). That document also lists the origins and commits and explains recovery without the lock or CLI.
-
-See the [Skills CLI documentation](https://skills.sh/docs/cli) and its [upstream README](https://github.com/vercel-labs/skills) for supported sources and installation options.
+See the [Skills CLI documentation](https://skills.sh/docs/cli), the [pack documentation](https://skills.sh/docs/packs) and the [upstream README](https://github.com/vercel-labs/skills) for supported sources and options.
