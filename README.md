@@ -1,6 +1,6 @@
 # Skills
 
-My own agent skills and a remote-source lock for the 25 skills installed globally as of October 9, 2026.
+My own agent skills and a remote-source lock for the 28 skills installed globally as of October 26, 2026.
 
 ## Available skills
 
@@ -54,7 +54,7 @@ npx skills add alanmoyano/skills --skill writing-pr -g
 
 ## Install the pack
 
-[Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6) bundles all 25 skills in this inventory. Install the collection globally for Codex and Claude Code:
+[Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6) bundles 25 of the 28 skills in this inventory. It does not yet include `state-machine`, `teardown` and `variant`, added to the lock on October 26, 2026. Install the collection globally for Codex and Claude Code:
 
 ```sh
 npx skills add https://skills.sh/p/jbI6I7Cw78IIw3Y6 -g -a codex claude-code -y

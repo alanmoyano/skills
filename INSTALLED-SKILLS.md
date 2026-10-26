@@ -1,8 +1,8 @@
 # Installed skills and recovery
 
-Inventory date: October 9, 2026. Scope: the 25 user-managed skills in `~/.agents/skills`.
+Inventory date: October 9, 2026, updated October 26, 2026. Scope: the 28 user-managed skills in `~/.agents/skills`.
 
-This repository contains only the authored `writing-pr` skill. The other 24 skills are downloaded from their upstream repositories when restoring. The existing global installation was not changed.
+This repository contains only the authored `writing-pr` skill. The other 27 skills are downloaded from their upstream repositories when restoring. The existing global installation was not changed.
 
 ## Lock format and verification
 
@@ -14,7 +14,7 @@ This repository contains only the authored `writing-pr` skill. The other 24 skil
 - `skillPath`: the path to `SKILL.md` inside that repository.
 - `computedHash`: the CLI's SHA-256 fingerprint of the skill folder's relative file paths and contents.
 
-All 25 remote folders matched the installed folders' fingerprints when this lock was generated. The sources for several pre-existing skills were recovered using `~/mocks/skills-lock.json`, then verified against upstream content. The pinned commits identify matching content; they do not necessarily identify the original installation date or commit.
+All 25 original remote folders matched the installed folders' fingerprints when this lock was generated. The `state-machine`, `teardown` and `variant` entries were added on October 26, 2026, and their installed folders matched the pinned upstream content. The sources for several pre-existing skills were recovered using `~/mocks/skills-lock.json`, then verified against upstream content. The pinned commits identify matching content; they do not necessarily identify the original installation date or commit.
 
 `ref` selects the revision. `computedHash` records content but is not a frozen-install enforcement mechanism in CLI 1.7.1. Run the verifier after restoration to check the result.
 
@@ -24,7 +24,7 @@ The user-level `~/.agents/.skill-lock.json` uses a separate global-lock format. 
 
 Pack: [Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6).
 
-Created on October 9, 2026 under the `alan-moyano` Vercel team. The pack contains the same 25 skill names as this lock: 24 public catalog entries with their original sources, plus `writing-pr` imported from `alanmoyano/skills` at `main`.
+Created on October 9, 2026 under the `alan-moyano` Vercel team. The pack contains the 25 skill names from the original lock: 24 public catalog entries with their original sources, plus `writing-pr` imported from `alanmoyano/skills` at `main`. Add `state-machine`, `teardown` and `variant` from `jakubkrehel/skills` to bring it in line with the lock.
 
 ```sh
 npx skills add https://skills.sh/p/jbI6I7Cw78IIw3Y6 -g -a codex claude-code -y
@@ -44,7 +44,7 @@ To edit the pack, sign in to skills.sh with its creator account and use **Edit s
 
 Repository: [jakubkrehel/skills](https://github.com/jakubkrehel/skills).
 
-Commit: `d574cc8a576dc24256ad38268b8d03d86724a1b3`.
+Commit: `d574cc8a576dc24256ad38268b8d03d86724a1b3`, except where noted.
 
 - `better-accessibility`: `skills/better-accessibility/SKILL.md`.
 - `better-colors`: `skills/better-colors/SKILL.md`.
@@ -56,6 +56,9 @@ Commit: `d574cc8a576dc24256ad38268b8d03d86724a1b3`.
 - `break`: `skills/break/SKILL.md`.
 - `explain-interface`: `skills/explain-interface/SKILL.md`.
 - `interface-review`: `skills/interface-review/SKILL.md`.
+- `state-machine`: `skills/state-machine/SKILL.md`, commit `592aedc44d7d5b3e29740984252902f3e5402a1c`.
+- `teardown`: `skills/teardown/SKILL.md`, commit `592aedc44d7d5b3e29740984252902f3e5402a1c`.
+- `variant`: `skills/variant/SKILL.md`, commit `592aedc44d7d5b3e29740984252902f3e5402a1c`.
 
 ### mattpocock/skills
 
@@ -134,6 +137,10 @@ Run the following commands to install the same pinned collection for Codex and C
 ```sh
 npx skills@1.7.1 add https://github.com/jakubkrehel/skills/tree/d574cc8a576dc24256ad38268b8d03d86724a1b3/skills \
   --skill better-accessibility better-colors better-interface better-layout better-typography better-ui better-writing break explain-interface interface-review \
+  --agent codex claude-code -g -y
+
+npx skills@1.7.1 add https://github.com/jakubkrehel/skills/tree/592aedc44d7d5b3e29740984252902f3e5402a1c/skills \
+  --skill state-machine teardown variant \
   --agent codex claude-code -g -y
 
 npx skills@1.7.1 add https://github.com/mattpocock/skills/tree/49dd158d1076134a641b33efb035946536778336/skills \
