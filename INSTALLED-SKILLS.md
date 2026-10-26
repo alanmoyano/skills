@@ -24,7 +24,7 @@ The user-level `~/.agents/.skill-lock.json` uses a separate global-lock format. 
 
 Pack: [Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6).
 
-Created on October 9, 2026 under the `alan-moyano` Vercel team. The pack contains the 25 skill names from the original lock: 24 public catalog entries with their original sources, plus `writing-pr` imported from `alanmoyano/skills` at `main`. Add `state-machine`, `teardown` and `variant` from `jakubkrehel/skills` to bring it in line with the lock.
+Created on October 9, 2026 under the `alan-moyano` Vercel team. The pack contains the same 28 skill names as this lock: 27 public catalog entries with their original sources, plus `writing-pr` imported from `alanmoyano/skills` at `main`. `state-machine`, `teardown` and `variant` were added on October 26, 2026.
 
 ```sh
 npx skills add https://skills.sh/p/jbI6I7Cw78IIw3Y6 -g -a codex claude-code -y
@@ -32,7 +32,7 @@ npx skills add https://skills.sh/p/jbI6I7Cw78IIw3Y6 -g -a codex claude-code -y
 
 Omit `-g` for a project-level installation. The pack is unlisted, and viewing or installing it requires no authentication. Anyone with its URL can access it.
 
-The pack installation was tested in an empty temporary project with Skills CLI 1.7.1. It installed all 25 expected skill names without extras, and `writing-pr` matched the file in this repository.
+The pack installation was tested in an empty temporary project with Skills CLI 1.7.1. It installed all 25 expected skill names without extras, and `writing-pr` matched the file in this repository. After the October 26, 2026 update, the pack page lists all 28 names. Test installations installed 27 of them without extras, dropping a different skill on each run. skills.sh limits these requests to 60 per hour, and a pack installation can exceed that limit. Compare the installed folder names with the lock after installing.
 
 The pack serves its current published contents. It does not use the commit pins in this repository's lock, so its versions can differ from the recorded inventory. Use the pinned restoration instructions below when those revisions matter. The hash verifier applies to the pinned collection and may report differences for a pack installation.
 

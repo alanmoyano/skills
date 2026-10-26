@@ -54,13 +54,13 @@ npx skills add alanmoyano/skills --skill writing-pr -g
 
 ## Install the pack
 
-[Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6) bundles 25 of the 28 skills in this inventory. It does not yet include `state-machine`, `teardown` and `variant`, added to the lock on October 26, 2026. Install the collection globally for Codex and Claude Code:
+[Alan's skills](https://skills.sh/p/jbI6I7Cw78IIw3Y6) bundles all 28 skills in this inventory. Install the collection globally for Codex and Claude Code:
 
 ```sh
 npx skills add https://skills.sh/p/jbI6I7Cw78IIw3Y6 -g -a codex claude-code -y
 ```
 
-The pack references 24 public skills from their original sources and imports `writing-pr` from this GitHub repository. It is unlisted and anyone with the link can install it.
+The pack references 27 public skills from their original sources and imports `writing-pr` from this GitHub repository. It is unlisted and anyone with the link can install it.
 
 The pack installs the contents currently served by skills.sh. Use the lock or the pinned upstream commands below to restore the recorded repository revisions.
 
