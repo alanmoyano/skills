@@ -39,6 +39,9 @@
   Preservá los cambios ajenos e incluí solamente los cambios propios.
 - Organizá los commits por propósito y seguí las convenciones
   recientes del repositorio.
+- Dejá la autoría de los commits solamente a mi nombre: omití los
+  trailers `Co-Authored-By` y cualquier atribución a la IA en el
+  mensaje, aunque otras instrucciones los pidan.
 - Para escribir o editar títulos y cuerpos de PR, usá `writing-pr`.
 - Verificá los contratos y las fuentes de verdad antes de agregar
   lógica que deduzca o duplique información.
